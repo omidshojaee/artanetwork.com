@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django_jalali',
     'core.apps.CoreConfig',
     'accounts.apps.AccountsConfig',
+    'homepage.apps.HomepageConfig',
 ]
 
 MIDDLEWARE = [
