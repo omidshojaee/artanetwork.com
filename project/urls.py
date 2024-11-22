@@ -19,7 +19,13 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
 
+from accounts.forms import AuthenticationForm
+from accounts.views import PasswordChangeView
+
+admin.site.login_form = AuthenticationForm
+
 urlpatterns = [
+    path('admin/password_change/', PasswordChangeView.as_view(), name='password_change'),
     path('admin/', admin.site.urls),
 ]
 
