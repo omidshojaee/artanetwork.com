@@ -6,7 +6,7 @@ extend_skip_glob = ['**/migrations/**', '**/__pycache__/**', 'venv/**', '**/__in
 default_section = 'THIRDPARTY'
 known_first_party = ['project']
 known_django = ['django']
-sections = ['FUTURE','STDLIB','THIRDPARTY','FIRSTPARTY','LOCALFOLDER']
+sections = ['FUTURE','STDLIB','DJANGO','THIRDPARTY','FIRSTPARTY','LOCALFOLDER']
 
 [tool.black]
 skip-string-normalization = true
