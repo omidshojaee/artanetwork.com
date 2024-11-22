@@ -34,7 +34,33 @@
 
     <body>
 
+        <!-- Header -->
+        <header id="header" class="header sticky-top">
+
+            <div class="topbar d-flex align-items-center">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <tgju type="ticker-tap" items="137203,137205,137221,137206,398096" columns="dot" speed="35" token="webservice"></tgju>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- End Top Bar -->
+
+        </header><!-- /Header -->
+
         {% block content %}{% endblock %}
+
+        <!-- Scroll Top -->
+        <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+        <!-- Preloader -->
+        <div id="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
 
         <!-- Vendor JS Files -->
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
@@ -48,6 +74,7 @@
 
         <!-- Template Main JS Files -->
         <script src="{% static 'js/main.js' %}"></script>
+        <script src="https://api.tgju.org/v1/widget/v2" defer></script>
 
         <!-- Extra JS Files -->
         {% block extrascript %}{% endblock %}
