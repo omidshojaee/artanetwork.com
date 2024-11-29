@@ -1,4 +1,5 @@
 {% load static %}
+{% load jalali_tags %}
 <!DOCTYPE html>
 <html lang="fa">
 
@@ -39,7 +40,10 @@
 
             <div class="topbar d-none d-md-flex align-items-center">
                 <div class="container">
-                    <div class="row justify-content-center">
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col-md-2">
+                          <p class="today">{% jalali_now %}</p>
+                        </div>
                         <div class="col-md-10">
                             <tgju type="ticker-tap" items="137203,137205,137206,137138,398096" columns="dot" speed="35" styles='{"separator": "#cccccc"}' token="webservice"></tgju>
                         </div>
@@ -51,38 +55,32 @@
 
                 <div class="container position-relative d-flex align-items-center justify-content-between">
                   <a href="index.html" class="logo d-flex align-items-center">
-                    <!-- Uncomment the line below if you also wish to use an image logo -->
-                    <!-- <img src="assets/img/logo.png" alt=""> -->
-                    <h1 class="sitename">Flattern</h1>
+                    <img src="{% static 'img/logo.png' %}" alt="آرتا شبکه صنعت رایان">
+                    <h1 class="sitename">آرتا شبکه صنعت رایان</h1>
                   </a>
           
                   <nav id="navmenu" class="navmenu">
                     <ul>
-                      <li><a href="index.html" class="active">Home<br></a></li>
-                      <li><a href="about.html">About</a></li>
-                      <li><a href="services.html">Services</a></li>
-                      <li><a href="testimonials.html">Testimonials</a></li>
-                      <li><a href="pricing.html">Pricing</a></li>
-                      <li><a href="portfolio.html">Portfolio</a></li>
-                      <li><a href="blog.html">Blog</a></li>
-                      <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                      <li><a href="{% url 'homepage:index' %}">خانه</a></li>
+                      <li class="dropdown"><a href="#"><span>محصولات</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                         <ul>
-                          <li><a href="#">Dropdown 1</a></li>
-                          <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                          <li><a href="#">محصول 1</a></li>
+                          <li><a href="#">محصول 2</a></li>
+                          <li><a href="#">محصول 3</a></li>
+                          <li><a href="#">محصول 4</a></li>
+                          <li class="dropdown"><a href="#"><span>محصول 5</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                             <ul>
-                              <li><a href="#">Deep Dropdown 1</a></li>
-                              <li><a href="#">Deep Dropdown 2</a></li>
-                              <li><a href="#">Deep Dropdown 3</a></li>
-                              <li><a href="#">Deep Dropdown 4</a></li>
-                              <li><a href="#">Deep Dropdown 5</a></li>
+                              <li><a href="#">محصول 5.1</a></li>
+                              <li><a href="#">محصول 5.2</a></li>
+                              <li><a href="#">محصول 5.3</a></li>
+                              <li><a href="#">محصول 5.4</a></li>
                             </ul>
-                          </li>
-                          <li><a href="#">Dropdown 2</a></li>
-                          <li><a href="#">Dropdown 3</a></li>
-                          <li><a href="#">Dropdown 4</a></li>
                         </ul>
                       </li>
-                      <li><a href="contact.html">Contact</a></li>
+                      <li><a href="{% url 'homepage:index' %}#services">خدمات</a></li>
+                      <li><a href="{% url 'homepage:index' %}#blog">مجله آرتا</a></li>
+                      <li><A href="{% url 'homepage:index' %}#about">درباره ما</a></li>
+                      <li><a href="{% url 'homepage:index' %}#contact">تماس با ما</a></li>
                     </ul>
                     <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
                   </nav>

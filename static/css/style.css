@@ -22,6 +22,18 @@
     margin-top: 15px;
 }
 
+.header .topbar .today {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--accent-color);
+}
+
+@media (max-width: 992px) {
+    .header .topbar .today {
+        font-size: 12px;
+    }
+}
+
 .tgju-widget {
     margin-bottom: 15px !important;
     background: #eeeeee !important;
@@ -57,10 +69,6 @@
     font-size: 16px;
 }
 
-.navmenu li:last-child a {
-    padding-right: 12px;
-}
-
 @media (min-width: 640px) {
     .hero .carousel-control-prev {
       padding-right: 15px;
@@ -72,3 +80,4 @@
       padding-left: 15px;
     }
 }
+
