@@ -69,6 +69,16 @@
     font-size: 16px;
 }
 
+.navmenu a i,
+.navmenu a:focus i {
+    margin-left: 0;
+    margin-right: 5px;
+}
+
+.navmenu .dropdown:hover > a > .bi-chevron-down {
+    transform: rotate(90deg);
+}
+
 @media (min-width: 640px) {
     .hero .carousel-control-prev {
       padding-right: 15px;
