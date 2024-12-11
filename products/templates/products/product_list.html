@@ -1,0 +1,9 @@
+{% for product in products %}
+<p>{{ product.name }}</p>
+<p>{{ product.slug }}</p>
+<p>{{ product.description }}</p>
+<img src="{{ product.image.url }}" alt="{{ product.name }}">
+{% for tag in product.tags.all %}
+<span>{{ tag.name }}</span>
+{% endfor %}
+{% endfor %}
