@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-17 15:09+0330\n"
+"POT-Creation-Date: 2024-12-17 20:51+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -88,65 +88,148 @@ msgstr "حذف فایل فعلی"
 msgid "Currently"
 msgstr "فایل فعلی"
 
-#: .\products\admin.py:41
+#: .\core\translations.py:12
+#, python-format
+msgid "Add another %(model)s"
+msgstr "افزودن %(model)s دیگر"
+
+#: .\products\admin.py:40
 msgid "logo thumbnail"
 msgstr "لوگوی برند"
 
-#: .\products\apps.py:8
+#: .\products\admin.py:83
+msgid "Related products (for this specific category)"
+msgstr "محصولات مربوطه (در این گروه بخصوص)"
+
+#: .\products\admin.py:90
+msgid "Related products (in this category and its subcategories)"
+msgstr ""
+"اختیاری. اگر این گروه زیرمجموعه گروه دیگری است، گروه والد را انتخاب کنید."
+
+#: .\products\admin.py:143
+msgid "formatted price"
+msgstr "قیمت به تومان"
+
+#: .\products\apps.py:8 .\products\models.py:91
 msgid "products"
 msgstr "مدیریت محصولات"
 
-#: .\products\models.py:10
+#: .\products\models.py:12
 msgid "brand name"
 msgstr "عنوان برند"
 
-#: .\products\models.py:12
+#: .\products\models.py:14
 msgid "brand slug"
 msgstr "نامک برند"
 
-#: .\products\models.py:15
+#: .\products\models.py:17 .\products\models.py:68
 msgid "English letters and numbers only. Replace space with \"-\"."
 msgstr "فقط حروف و اعداد انگلیسی. فاصله با خط تیره جایگزین شود."
 
-#: .\products\models.py:18
+#: .\products\models.py:20
 msgid "brand logo"
 msgstr "لوگوی برند"
 
-#: .\products\models.py:22
+#: .\products\models.py:24
 msgid "brand"
 msgstr "برند"
 
-#: .\products\models.py:23
+#: .\products\models.py:25
 msgid "brands"
-msgstr "برندها"
+msgstr "مدیریت برندها"
 
-#: .\products\models.py:30
+#: .\products\models.py:32
 msgid "category name"
 msgstr "نام گروه محصول"
 
-#: .\products\models.py:32
+#: .\products\models.py:34
 msgid "category slug"
 msgstr "نامک گروه محصول"
 
-#: .\products\models.py:35
+#: .\products\models.py:37
 msgid "English letters and numbers only. Replace space with \"-."
 msgstr "فقط حروف و اعداد انگلیسی. فاصله با خط تیره جایگزین شود."
 
-#: .\products\models.py:43
-msgid "parent category"
-msgstr "'گروه والد"
-
 #: .\products\models.py:45
-msgid "Optional. Select a parent category if this category is a subcategory."
-msgstr "اختیاری. اگر این گروه زیرمجموعه گروه دیگری است، گروه والد را انتخاب کنید."
+msgid "parent category"
+msgstr "گروه والد"
 
-#: .\products\models.py:53
+#: .\products\models.py:47
+msgid "Optional. Select a parent category if this category is a subcategory."
+msgstr ""
+"اختیاری. اگر این گروه زیرمجموعه گروه دیگری است، گروه والد را انتخاب کنید."
+
+#: .\products\models.py:55
 msgid "category"
 msgstr "گروه محصول"
 
-#: .\products\models.py:54
+#: .\products\models.py:56
 msgid "categories"
 msgstr "گروه‌های محصول"
+
+#: .\products\models.py:63
+msgid "product name"
+msgstr "نام محصول"
+
+#: .\products\models.py:65
+msgid "product slug"
+msgstr "نامک محصول"
+
+#: .\products\models.py:74
+msgid "product brand"
+msgstr "برند محصول"
+
+#: .\products\models.py:80
+msgid "product category"
+msgstr "گروه محصول"
+
+#: .\products\models.py:83
+msgid "product image"
+msgstr "تصویر محصول"
+
+#: .\products\models.py:85
+msgid "product description"
+msgstr "توضیحات محصول"
+
+#: .\products\models.py:86
+msgid "product price"
+msgstr "قیمت محصول"
+
+#: .\products\models.py:86
+msgid "Price in Toman."
+msgstr "قیمت به تومان"
+
+#: .\products\models.py:87
+msgid "product tags"
+msgstr "برچسب محصول"
+
+#: .\products\models.py:90
+msgid "product"
+msgstr "محصول"
+
+#: .\products\models.py:102
+msgid "spec title"
+msgstr "عنوان ویژگی"
+
+#: .\products\models.py:102
+msgid "e.g. Color, Size, etc."
+msgstr "مثال: رنگ، اندازه و غیره"
+
+#: .\products\models.py:105
+msgid "spec value"
+msgstr "مقدار ویژگی"
+
+#: .\products\models.py:105
+msgid "e.g. Red, 42, etc."
+msgstr "مثال: قرمز، ۴۲ و غیره"
+
+#: .\products\models.py:109
+msgid "specification"
+msgstr "ویژگی‌ محصول"
+
+#: .\products\models.py:110
+msgid "specifications"
+msgstr "ویژگی‌های محصول"
 
 #: .\venv\Lib\site-packages\django\contrib\messages\apps.py:16
 msgid "Messages"

@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_jalali',
     'mptt',
+    'taggit',
+    'tinymce',
     'core.apps.CoreConfig',
     'accounts.apps.AccountsConfig',
     'products.apps.ProductsConfig',

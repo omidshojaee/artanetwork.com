@@ -8,3 +8,5 @@ gettext('Results')
 
 gettext('Clear')
 gettext('Currently')
+
+gettext('Add another %(model)s')
