@@ -5,3 +5,6 @@ gettext('FileBrowser')
 gettext('By Date')
 gettext('By Type')
 gettext('Results')
+
+gettext('Clear')
+gettext('Currently')

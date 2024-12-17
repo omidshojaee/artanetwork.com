@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-17 14:31+0330\n"
+"POT-Creation-Date: 2024-12-17 14:53+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -78,7 +78,17 @@ msgstr "بر اساس نوع"
 msgid "Results"
 msgstr "نتایج"
 
-#: .\products\admin.py:38
+#: .\core\translations.py:9
+#: .\venv\Lib\site-packages\django\forms\widgets.py:461
+msgid "Clear"
+msgstr "حذف فایل فعلی"
+
+#: .\core\translations.py:10
+#: .\venv\Lib\site-packages\django\forms\widgets.py:462
+msgid "Currently"
+msgstr "فایل فعلی"
+
+#: .\products\admin.py:39
 msgid "logo thumbnail"
 msgstr "لوگوی برند"
 
@@ -747,14 +757,6 @@ msgstr ""
 msgid ""
 "%(datetime)s couldn’t be interpreted in time zone %(current_timezone)s; it "
 "may be ambiguous or it may not exist."
-msgstr ""
-
-#: .\venv\Lib\site-packages\django\forms\widgets.py:461
-msgid "Clear"
-msgstr ""
-
-#: .\venv\Lib\site-packages\django\forms\widgets.py:462
-msgid "Currently"
 msgstr ""
 
 #: .\venv\Lib\site-packages\django\forms\widgets.py:463

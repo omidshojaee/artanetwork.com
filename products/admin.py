@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib import admin
+from django.forms.widgets import ClearableFileInput
 from django.utils.html import mark_safe
 from django.utils.translation import gettext_lazy as _
 
