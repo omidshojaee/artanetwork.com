@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-17 12:25+0330\n"
+"POT-Creation-Date: 2024-12-17 12:39+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -62,9 +62,21 @@ msgstr "کاربر سایت"
 msgid "users"
 msgstr "کاربران سایت"
 
-#: .\core\translations.py:3
+#: .\core\apps.py:13 .\core\translations.py:3
 msgid "FileBrowser"
 msgstr "مدیریت فایل"
+
+#: .\core\translations.py:4
+msgid "By Date"
+msgstr "بر اساس تاریخ"
+
+#: .\core\translations.py:5
+msgid "By Type"
+msgstr "بر اساس نوع"
+
+#: .\core\translations.py:6
+msgid "Results"
+msgstr "نتایج"
 
 #: .\venv\Lib\site-packages\django\contrib\messages\apps.py:16
 msgid "Messages"
