@@ -15,6 +15,9 @@ class BrandAdminForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+
+        self.fields['slug'].widget.attrs.update({'style': 'direction: ltr;'})
+
         if self.instance and self.instance.logo:
             self.fields['logo'].help_text = mark_safe(
                 f'<img src="{self.instance.logo.url}" alt="{self.instance.name}" style="width: 100px; height: auto; margin-top: 10px;" />'

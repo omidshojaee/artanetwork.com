@@ -6,6 +6,12 @@ from django.utils.translation import gettext_lazy as _
 
 class Brand(models.Model):
     name = models.CharField(_('brand name'), max_length=100)
+    slug = models.SlugField(
+        _('brand slug'),
+        max_length=100,
+        unique=True,
+        help_text=_('English letters and numbers only. Replace space with "-".'),
+    )
     logo = models.ImageField(
         _('brand logo'), upload_to='brands/', null=True, blank=True
     )

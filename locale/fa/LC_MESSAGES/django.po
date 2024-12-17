@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-17 13:21+0330\n"
+"POT-Creation-Date: 2024-12-17 14:31+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -62,23 +62,23 @@ msgstr "کاربر سایت"
 msgid "users"
 msgstr "کاربران سایت"
 
-#: .\core\apps.py:13 .\core\translations.py:3
+#: .\core\apps.py:13 .\core\translations.py:4
 msgid "FileBrowser"
 msgstr "مدیریت فایل"
 
-#: .\core\translations.py:4
+#: .\core\translations.py:5
 msgid "By Date"
 msgstr "بر اساس تاریخ"
 
-#: .\core\translations.py:5
+#: .\core\translations.py:6
 msgid "By Type"
 msgstr "بر اساس نوع"
 
-#: .\core\translations.py:6
+#: .\core\translations.py:7
 msgid "Results"
 msgstr "نتایج"
 
-#: .\products\admin.py:35
+#: .\products\admin.py:38
 msgid "logo thumbnail"
 msgstr "لوگوی برند"
 
@@ -91,14 +91,22 @@ msgid "brand name"
 msgstr "عنوان برند"
 
 #: .\products\models.py:10
+msgid "brand slug"
+msgstr "نامک برند"
+
+#: .\products\models.py:13
+msgid "English letters and numbers only. Replace space with \"-\"."
+msgstr "فقط حروف و اعداد انگلیسی. فاصله با خط تیره جایگزین شود."
+
+#: .\products\models.py:16
 msgid "brand logo"
 msgstr "لوگوی برند"
 
-#: .\products\models.py:14
+#: .\products\models.py:20
 msgid "brand"
 msgstr "برند"
 
-#: .\products\models.py:15
+#: .\products\models.py:21
 msgid "brands"
 msgstr "برندها"
 
@@ -1375,3 +1383,9 @@ msgstr ""
 #: .\venv\Lib\site-packages\django_jalali\db\models.py:229
 msgid "Enter a valid date/time in YYYY-MM-DD HH:MM[:ss[.uuuuuu]] format."
 msgstr ""
+
+#~ msgid "Choose File"
+#~ msgstr "انتخاب فایل"
+
+#~ msgid "No file chosen"
+#~ msgstr "فایلی انتخاب نشده است"
