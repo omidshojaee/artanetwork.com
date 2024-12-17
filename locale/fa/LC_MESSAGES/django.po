@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-17 12:41+0330\n"
+"POT-Creation-Date: 2024-12-17 13:21+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -78,9 +78,29 @@ msgstr "بر اساس نوع"
 msgid "Results"
 msgstr "نتایج"
 
+#: .\products\admin.py:35
+msgid "logo thumbnail"
+msgstr "لوگوی برند"
+
 #: .\products\apps.py:8
 msgid "products"
 msgstr "مدیریت محصولات"
+
+#: .\products\models.py:8
+msgid "brand name"
+msgstr "عنوان برند"
+
+#: .\products\models.py:10
+msgid "brand logo"
+msgstr "لوگوی برند"
+
+#: .\products\models.py:14
+msgid "brand"
+msgstr "برند"
+
+#: .\products\models.py:15
+msgid "brands"
+msgstr "برندها"
 
 #: .\venv\Lib\site-packages\django\contrib\messages\apps.py:16
 msgid "Messages"
