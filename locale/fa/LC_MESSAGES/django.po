@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-17 14:53+0330\n"
+"POT-Creation-Date: 2024-12-17 15:09+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -88,7 +88,7 @@ msgstr "حذف فایل فعلی"
 msgid "Currently"
 msgstr "فایل فعلی"
 
-#: .\products\admin.py:39
+#: .\products\admin.py:41
 msgid "logo thumbnail"
 msgstr "لوگوی برند"
 
@@ -96,29 +96,57 @@ msgstr "لوگوی برند"
 msgid "products"
 msgstr "مدیریت محصولات"
 
-#: .\products\models.py:8
+#: .\products\models.py:10
 msgid "brand name"
 msgstr "عنوان برند"
 
-#: .\products\models.py:10
+#: .\products\models.py:12
 msgid "brand slug"
 msgstr "نامک برند"
 
-#: .\products\models.py:13
+#: .\products\models.py:15
 msgid "English letters and numbers only. Replace space with \"-\"."
 msgstr "فقط حروف و اعداد انگلیسی. فاصله با خط تیره جایگزین شود."
 
-#: .\products\models.py:16
+#: .\products\models.py:18
 msgid "brand logo"
 msgstr "لوگوی برند"
 
-#: .\products\models.py:20
+#: .\products\models.py:22
 msgid "brand"
 msgstr "برند"
 
-#: .\products\models.py:21
+#: .\products\models.py:23
 msgid "brands"
 msgstr "برندها"
+
+#: .\products\models.py:30
+msgid "category name"
+msgstr "نام گروه محصول"
+
+#: .\products\models.py:32
+msgid "category slug"
+msgstr "نامک گروه محصول"
+
+#: .\products\models.py:35
+msgid "English letters and numbers only. Replace space with \"-."
+msgstr "فقط حروف و اعداد انگلیسی. فاصله با خط تیره جایگزین شود."
+
+#: .\products\models.py:43
+msgid "parent category"
+msgstr "'گروه والد"
+
+#: .\products\models.py:45
+msgid "Optional. Select a parent category if this category is a subcategory."
+msgstr "اختیاری. اگر این گروه زیرمجموعه گروه دیگری است، گروه والد را انتخاب کنید."
+
+#: .\products\models.py:53
+msgid "category"
+msgstr "گروه محصول"
+
+#: .\products\models.py:54
+msgid "categories"
+msgstr "گروه‌های محصول"
 
 #: .\venv\Lib\site-packages\django\contrib\messages\apps.py:16
 msgid "Messages"

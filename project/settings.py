@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_jalali',
+    'mptt',
     'core.apps.CoreConfig',
     'accounts.apps.AccountsConfig',
     'products.apps.ProductsConfig',

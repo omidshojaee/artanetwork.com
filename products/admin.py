@@ -1,10 +1,11 @@
 from django import forms
 from django.contrib import admin
-from django.forms.widgets import ClearableFileInput
 from django.utils.html import mark_safe
 from django.utils.translation import gettext_lazy as _
 
-from .models import Brand
+from mptt.admin import DraggableMPTTAdmin
+
+from .models import Brand, Category
 
 # Register your models here.
 
@@ -37,3 +38,25 @@ class BrandAdmin(admin.ModelAdmin):
         )
 
     logo_thumbnail.short_description = _('logo thumbnail')
+
+
+class CategoryAdminForm(forms.ModelForm):
+    class Meta:
+        model = Category
+        fields = '__all__'
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.fields['slug'].widget.attrs.update({'style': 'direction: ltr;'})
+
+
+@admin.register(Category)
+class CategoryAdmin(DraggableMPTTAdmin):
+    form = CategoryAdminForm
+    list_display = (
+        'tree_actions',
+        'indented_title',
+    )
+    list_display_links = ('indented_title',)
+    search_fields = ('name',)
