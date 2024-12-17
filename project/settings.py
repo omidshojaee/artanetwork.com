@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'core.apps.FileBrowserConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -136,3 +137,12 @@ MEDIA_ROOT = BASE_DIR / 'media/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# django-filebrowser settings
+# https://django-filebrowser.readthedocs.io/en/latest/settings.html
+
+FILEBROWSER_DIRECTORY = '' # Set the main filebrowser directory to media root
+FILEBROWSER_MAX_UPLOAD_SIZE = 10485760 # Set the maximum upload size to 10MB
+FILEBROWSER_NORMALIZE_FILENAME = True # Normalize filenames and remove all non-alphanumeric characters except for underscores, spaces and dashes
+FILEBROWSER_CONVERT_FILENAME = True # Convert filenames and replace spaces and convert to lowercase

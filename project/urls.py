@@ -19,6 +19,8 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
 
+from filebrowser.sites import site as filebrowser_site
+
 from accounts.forms import AuthenticationForm
 from accounts.views import PasswordChangeView
 
@@ -29,6 +31,7 @@ admin.site.index_title = 'پنل مدیریت'
 
 
 urlpatterns = [
+    path('admin/filebrowser/', filebrowser_site.urls),
     path('admin/password_change/', PasswordChangeView.as_view(), name='password_change'),
     path('admin/', admin.site.urls),
 ]
