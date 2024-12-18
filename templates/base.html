@@ -60,6 +60,38 @@
                     <nav id="navmenu" class="navmenu">
                         <ul>
                             <li><a href="{% url 'homepage:index' %}" class="active">خانه</a></li>
+                            <li class="dropdown">
+                                <a href="#"><span>محصولات</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                                <ul>
+                                    {% for menu_item in menu_structure %}
+                                        <li class="{% if menu_item.level_one.has_children %}dropdown{% endif %}">
+                                            {% if menu_item.level_one.url %}
+                                                <a href="{{ menu_item.level_one.url }}">
+                                                    <span>{{ menu_item.level_one.name }}</span>
+                                                </a>
+                                            {% else %}
+                                                <a href="#">
+                                                    <span>{{ menu_item.level_one.name }}</span>
+                                                    {% if menu_item.level_one.has_children %}
+                                                        <i class="bi bi-chevron-down toggle-dropdown"></i>
+                                                    {% endif %}
+                                                </a>
+                                            {% endif %}
+                                            {% if menu_item.level_one.has_children %}
+                                                <ul>
+                                                    {% for subcategory in menu_item.level_two %}
+                                                        <li>
+                                                            <a href="{{ subcategory.url }}">
+                                                                {{ subcategory.name }}
+                                                            </a>
+                                                        </li>
+                                                    {% endfor %}
+                                                </ul>
+                                            {% endif %}
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
                             <li><a href="{% url 'homepage:index' %}#services">خدمات</a></li>
                             <li><a href="{% url 'homepage:index' %}#blog">مجله آرتا</a></li>
                             <li><A href="{% url 'homepage:index' %}#about">درباره ما</a></li>
