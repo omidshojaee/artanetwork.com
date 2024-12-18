@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-17 20:51+0330\n"
+"POT-Creation-Date: 2024-12-18 12:21+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -93,20 +93,48 @@ msgstr "فایل فعلی"
 msgid "Add another %(model)s"
 msgstr "افزودن %(model)s دیگر"
 
-#: .\products\admin.py:40
+#: .\homepage\admin.py:36
+msgid "image thumbnail"
+msgstr "تصویر اسلاید"
+
+#: .\homepage\apps.py:8
+msgid "homepage"
+msgstr "تنظیمات صفحه اول"
+
+#: .\homepage\models.py:8
+msgid "slide title"
+msgstr "عنوان اصلی اسلاید"
+
+#: .\homepage\models.py:9
+msgid "slide subtitle"
+msgstr "عنوان فرعی اسلاید"
+
+#: .\homepage\models.py:11
+msgid "slide image"
+msgstr "تصویر اسلاید"
+
+#: .\homepage\models.py:15
+msgid "slider"
+msgstr "اسلاید"
+
+#: .\homepage\models.py:16
+msgid "sliders"
+msgstr "اسلایدها"
+
+#: .\products\admin.py:44
 msgid "logo thumbnail"
 msgstr "لوگوی برند"
 
-#: .\products\admin.py:83
+#: .\products\admin.py:87
 msgid "Related products (for this specific category)"
 msgstr "محصولات مربوطه (در این گروه بخصوص)"
 
-#: .\products\admin.py:90
+#: .\products\admin.py:94
 msgid "Related products (in this category and its subcategories)"
 msgstr ""
 "اختیاری. اگر این گروه زیرمجموعه گروه دیگری است، گروه والد را انتخاب کنید."
 
-#: .\products\admin.py:143
+#: .\products\admin.py:147
 msgid "formatted price"
 msgstr "قیمت به تومان"
 

@@ -35,6 +35,7 @@ urlpatterns = [
     path('admin/password_change/', PasswordChangeView.as_view(), name='password_change'),
     path('admin/', admin.site.urls),
     path('tinymce/', include('tinymce.urls')),
+    path('', include('homepage.urls', namespace='homepage')),
 ]
 
 if settings.DEBUG:

@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+        <main class="main">
+
+            <!-- Hero Section -->
+            <section id="hero" class="hero section dark-background">
+
+                <div id="hero-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+
+                    {% for slider in sliders %}
+                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                        <img src="{{ slider.image.url }}" alt="{{ slider.title }}">
+                        <div class="container">
+                            <h2>{{ slider.title }}</h2>
+                            <p>{{ slider.subtitle }}</p>
+                            <a href="#featured-services" class="btn-get-started">تماس بگیرید</a>
+                        </div>
+                    </div><!-- End Carousel Item -->
+                    {% endfor %}
+
+                    <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="next">
+                        <span class="carousel-control-prev-icon bi bi-chevron-right" aria-hidden="true"></span>
+                    </a>
+
+                    <a class="carousel-control-next" href="#hero-carousel" role="button" data-bs-slide="prev">
+                        <span class="carousel-control-next-icon bi bi-chevron-left" aria-hidden="true"></span>
+                    </a>
+
+                    <ol class="carousel-indicators"></ol>
+
+                </div>
+
+            </section><!-- /Hero Section -->
+
+            <!-- Call To Action Section -->
+            <section id="call-to-action" class="call-to-action section light-background">
+
+                <div class="container">
+
+                    <div class="row align-items-center justify-content-center" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="col-lg-10 text-center">
+                            <h3>اشتراک خبرنامه</h3>
+                            <p>جهت اطلاع از آخرین اخبار و اطلاعات خدمات و محصولات ما در خبرنامه عضو شوید. نشانی ایمیل شما محفوظ خواهد ماند.</p>
+                        </div>
+                        <div class="col-lg-4">
+                            <form action="#" method="post" class="php-email-form" style="direction:ltr;">
+                                <div class="newsletter-form">
+                                    <input type="email" name="email">
+                                    <input type="submit" value="اشتراک">
+                                </div>
+                                <div class="loading">در حال بارگذاری</div>
+                                <div class="error-message"></div>
+                                <div class="sent-message">اشتراک شما با موفقیت ثبت شد. سپاسگزاریم!</div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section><!-- /Call To Action Section -->
+
+
+        </main>
+
+{% endblock %}

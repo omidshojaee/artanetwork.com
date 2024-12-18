@@ -4,10 +4,14 @@ from django.utils.html import mark_safe
 from django.utils.translation import gettext_lazy as _
 
 from mptt.admin import DraggableMPTTAdmin
+from taggit.models import Tag
 
 from .models import Brand, Category, Product, Specification
 
 # Register your models here.
+
+
+admin.site.unregister(Tag)
 
 
 class BrandAdminForm(forms.ModelForm):
