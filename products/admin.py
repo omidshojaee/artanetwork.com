@@ -24,17 +24,22 @@ class BrandAdminForm(forms.ModelForm):
 
         self.fields['slug'].widget.attrs.update({'style': 'direction: ltr;'})
 
-        if self.instance and self.instance.logo:
-            self.fields['logo'].help_text = mark_safe(
-                f'<img src="{self.instance.logo.url}" alt="{self.instance.name}" style="width: 100px; height: auto; margin-top: 10px;" />'
-            )
-
 
 @admin.register(Brand)
 class BrandAdmin(admin.ModelAdmin):
     form = BrandAdminForm
     list_display = ('name', 'logo_thumbnail')
     search_fields = ('name',)
+    readonly_fields = ('image_preview',)
+
+    def image_preview(self, obj):
+        if obj.logo:
+            return mark_safe(
+                f'<img src="{obj.logo.url}" style="max-width: 100px; height: auto;" />'
+            )
+        return _('No image uploaded')
+
+    image_preview.short_description = _('Current image')
 
     def logo_thumbnail(self, obj):
         return mark_safe(
@@ -110,10 +115,6 @@ class ProductAdminForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        if self.instance and self.instance.image:
-            self.fields['image'].help_text = mark_safe(
-                f'<img src="{self.instance.image.url}" alt="{self.instance.name}" style="width: 100px; height: auto; margin-top: 10px;" />'
-            )
         self.fields['price'].widget = CommaSeparatedNumberWidget(
             attrs={'class': 'form-control', 'style': 'direction: ltr;'}
         )
@@ -134,6 +135,7 @@ class ProductAdmin(admin.ModelAdmin):
     list_display = ('name', 'brand', 'category', 'formatted_price', 'tags_list')
     search_fields = ('name', 'brand__name', 'category__name', 'tags__name')
     autocomplete_fields = ('brand', 'category')
+    readonly_fields = ('image_preview',)
 
     def get_queryset(self, request):
         return super().get_queryset(request).prefetch_related('tags')
@@ -143,5 +145,14 @@ class ProductAdmin(admin.ModelAdmin):
 
     def formatted_price(self, obj):
         return f'{obj.price:,} تومان'
+
+    def image_preview(self, obj):
+        if obj.image:
+            return mark_safe(
+                f'<img src="{obj.image.url}" style="max-width: 100px; height: auto;" />'
+            )
+        return _('No image uploaded')
+
+    image_preview.short_description = _('Current image')
 
     formatted_price.short_description = _('formatted price')
