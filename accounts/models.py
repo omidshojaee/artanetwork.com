@@ -1,7 +1,10 @@
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.db import models
+from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
+
+from django_jalali.db import models as jmodels
 
 # Create your models here.
 
@@ -48,6 +51,8 @@ class User(AbstractUser):
             'Required. 254 characters or fewer. Allowed characters: letters, digits, and . ! # $ % & \' * + - / = ? ^ _ ` { | } ~ " ( ) , : ; < > [ ] @'
         ),
     )
+    date_joined = jmodels.jDateTimeField(_('date joined'), default=timezone.now)
+    last_login = jmodels.jDateTimeField(_('last login'), blank=True, null=True)
 
     objects = UserManager()
 
