@@ -1,14 +1,43 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
+from django.contrib.auth.forms import (
+    AdminPasswordChangeForm,
+    UserChangeForm,
+    UserCreationForm,
+)
 from django.utils.translation import gettext_lazy as _
 
 from .models import User
 
+
 # Register your models here.
+class AdminPasswordChangeForm(AdminPasswordChangeForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['password1'].widget.attrs.update({'dir': 'ltr'})
+        self.fields['password2'].widget.attrs.update({'dir': 'ltr'})
+
+
+class UserChangeForm(UserChangeForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['email'].widget.attrs.update({'dir': 'ltr'})
+
+
+class UserCreationForm(UserCreationForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['email'].widget.attrs.update({'dir': 'ltr'})
+        self.fields['password1'].widget.attrs.update({'dir': 'ltr'})
+        self.fields['password2'].widget.attrs.update({'dir': 'ltr'})
 
 
 @admin.register(User)
 class UserAdmin(UserAdmin):
+    add_form = UserCreationForm
+    form = UserChangeForm
+    change_password_form = AdminPasswordChangeForm
+
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
         (_('Personal info'), {'fields': ('first_name', 'last_name')}),
