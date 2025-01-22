@@ -208,10 +208,10 @@ if os.getenv('DEBUG') == 'false':
 # https://django-csp.readthedocs.io/en/3.8/configuration.html#policy-settings
 
 CSP_DEFAULT_SRC = ("'unsafe-eval'",)
-CSP_SCRIPT_SRC_ELEM = ("'self'",'cdn.jsdelivr.net','api.tgju.org',)
+CSP_SCRIPT_SRC_ELEM = ("'self'","'unsafe-inline'",'cdn.jsdelivr.net','api.tgju.org','www.googletagmanager.com',)
 CSP_IMG_SRC = ("'self'",'static.tgju.org',)
 CSP_FONT_SRC = ('data:','fonts.gstatic.com','cdn.jsdelivr.net','static.tgju.org',)
-CSP_CONNECT_SRC = ("'self'",'api.tgju.org',)
+CSP_CONNECT_SRC = ("'self'",'api.tgju.org','www.google-analytics.com',)
 CSP_STYLE_SRC = ("'unsafe-inline'",)
 CSP_STYLE_SRC_ELEM = ("'self'","'unsafe-inline'",'fonts.googleapis.com','cdn.jsdelivr.net',)
 
