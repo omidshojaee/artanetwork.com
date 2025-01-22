@@ -1,0 +1,22 @@
+/* Force LTR on the code sample container in the editor */
+.mce-content-body pre[class*="language-"] {
+    direction: ltr !important;
+    text-align: left !important;
+}
+
+/* Make the code sample popup textarea LTR */
+.tox-textarea {
+    direction: ltr !important;
+    text-align: left !important;
+}
+
+/* Fix alignment of code selection dropdown in the dialog */
+.tox-dialog__body-content .tox-selectfield select {
+    direction: ltr;
+    text-align: left;
+}
+
+/* Ensure proper scrollbar position */
+.mce-content-body pre[class*="language-"] {
+    overflow-x: auto;
+}

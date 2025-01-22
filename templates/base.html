@@ -1,0 +1,155 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="فروش و نصب تجهیزات شبکه شامل محصولات اکتیو و پسیو، تجهیزات وایرلس، دوربین‌های مداربسته و نرم‌افزارهای سرور با بهترین کیفیت و قیمت مناسب | آرتا شبکه صنعت رایان">
+        <meta name="og:site_name" content="artanetwork.com" />
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="آرتا شبکه صنعت رایان">
+        {% block extraheader %}{% endblock %}
+
+        <title>{% block title %}{% endblock %}</title>
+
+        <!-- Favicons -->
+        
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
+
+        <!-- Vendor CSS Files -->
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" integrity="sha256-h5lE7Nm8SkeIpBHHYxN99spP3VuGFKl5NZgsocil7zk=" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" integrity="sha256-9kPW/n5nn53j4WMRYAxe9c1rCY96Oogo/MKSVdKzPmI=" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" integrity="sha256-GqiEX9BuR1rv5zPU5Vs2qS/NSHl1BJyBcjQYJ6ycwD4=" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css" integrity="sha256-bT9i1NF5afnHDpQ4z2cQBHJQGehoEj8uvClaAG+NXS0=" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.2.0/swiper-bundle.min.css" integrity="sha256-HIH4tkN3Ty22rS63sFIewsYieG+gbJ026YJcfRwxHr0=" crossorigin="anonymous">
+
+        <!-- Template Main CSS Files -->
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
+        <link rel="stylesheet" href="{% static 'css/prism-one-dark.css' %}">
+
+        <!-- Extra CSS Files -->
+        {% block extrastyle %}{% endblock %}
+    </head>
+
+    <body>
+
+        <header id="header" class="header sticky-top">
+
+            <div class="topbar d-flex align-items-center">
+
+                <div class="container position-relative align-items-center justify-content-between">
+                    <tgju
+                        type="ticker-tap"
+                        items="137203,137205,137206,137137,137138"
+                        columns="dot"
+                        speed="35"
+                        styles='{"separator": "#cccccc"}'
+                        token="webservice">
+                    </tgju>
+                </div>
+
+            </div>
+
+            <div class="branding d-flex align-items-center">
+
+                <div class="container d-flex position-relative align-items-center justify-content-between">
+                    
+                    <a href="{% url 'homepage:index' %}" class="logo d-flex align-items-center">
+                        <img src="{% static 'img/logo.png' %}" alt="آرتا شبکه صنعت رایان" />
+                        <h1 class="sitename">آرتا شبکه صنعت رایان</h1>
+                    </a>
+
+                    <nav id="navmenu" class="navmenu">
+                        <ul>
+                            <li><a href="{% url 'homepage:index' %}" class="active">صفحه اول</a></li>
+                            <li class="dropdown"><a href="#"><span>محصولات</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                                <ul>
+                                    {% for category in menu_categories|dictsort:"id" %}
+                                    <li {% if category.children.exists%}class="dropdown"{% endif %}>
+                                        {% if category.children.exists %}
+                                        <a href="#"><span>{{ category.name }}</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                                        <ul>
+                                            {% for subcategory in category.children.all %}
+                                            <li>
+                                                <a href="{{ subcategory.get_absolute_url }}">
+                                                    {{ subcategory.name }}
+                                                </a>
+                                            </li>
+                                            {% endfor %}
+                                        </ul>
+                                        {% else %}
+                                        <a href="{{ category.get_absolute_url }}"><span>{{ category.name }}</span></a>
+                                        {% endif %}
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                            <li><a href="{% url 'homepage:index' %}#services">خدمات</a></li>
+                            <li><a href="#">مجله آرتا</a></li>
+                            <li><a href="{% url 'homepage:index' %}#contact">تماس با ما</a></li>
+                        </ul>
+                        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+                    </nav>
+
+                </div>
+
+            </div>
+
+        </header>
+
+        {% block content %}{% endblock %}
+
+        <footer id="footer" class="footer dark-background">
+
+            <div class="copyright text-center">
+                <div class="container d-flex flex-column flex-lg-row justify-content-center justify-content-lg-between align-items-center">
+          
+                    <div class="d-flex flex-column order-1 align-items-center align-items-lg-start">
+                        <div>
+                            تمامی حقوق برای <strong><span>آرتا شبکه صنعت رایان</span></strong> محفوظ است
+                        </div>
+                    </div>
+          
+                    <div class="social-links mb-3 mb-lg-0">
+                        <a href="https://wa.me/989935530200" target="_blank"><i class="bi bi-whatsapp"></i></a>
+                        <a href="https://t.me/+98989935530200" target="_blank"><i class="bi bi-telegram"></i></a>
+                        <a href="https://www.instagram.com/arta_network" target="_blank"><i class="bi bi-instagram"></i></a>
+                    </div>
+          
+                </div>
+            </div>
+
+        </footer>
+
+        <!-- Scroll Top -->
+        <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+        <!-- Preloader -->
+        <div id="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        
+        <!-- Vendor JS Files -->
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha256-CDOy6cOibCWEdsRiZuaHf8dSGGJRYuBGC+mjoJimHGw=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" integrity="sha256-pQBbLkFHcP1cy0C8IhoSdxlm0CtcH5yJ2ki9jjgR03c=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11.2.0/swiper-bundle.min.js" integrity="sha256-DguNjlJLchB+05vRNGk4amobGkBp8rZg55nZYiVFVpk=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.js" integrity="sha256-S5mU/F9EHUxP/yPe4lNcCQEL+TsdkMLHKwQww9PxAI4=" crossorigin="anonymous"></script>
+        
+        <!-- Template Main JS Files -->
+        <script src="{% static 'js/main.js' %}"></script>
+        <script src="https://api.tgju.org/v1/widget/v2" defer></script>
+
+        <!-- Extra JS Files -->
+        {% block extrascript %}{% endblock %}
+
+    </body>
+
+</html>

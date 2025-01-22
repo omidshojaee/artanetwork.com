@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load number_formats %}
+{% load farsi_tags %}
+{% block extraheader %}
+        <meta property="og:title" content="{{ category.name }}" />
+        <meta property="og:desription" content="بهترین قیمت {{ category.name}} | آرتا شبکه صنعت رایان" />
+        <meta property="og:url" content="{{ request.build_absolute_uri }}" />
+        <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{{ category.image.url }}" />
+        <link rel="canonical" href="{{ request.build_absolute_uri }}" />
+{% endblock %}
+{% block title %}بهترین قیمت {{ category.name}} | آرتا شبکه صنعت رایان{% endblock %}
+
+{% block content %}
+
+        <main class="main">
+
+            <!-- Page Title -->
+            <div class="page-title dark-background">
+                <div class="container d-lg-flex justify-content-between align-items-center">
+                    <nav class="breadcrumbs">
+                        <ol>
+                            <li><a href="{% url 'homepage:index' %}">صفحه اول</a></li>
+                            <li>
+                                <a href="{{ category.get_absolute_url }}">
+                                    {{ category.name }}
+                                </a>
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
+            </div><!-- End Page Title -->
+
+            <section id="team" class="promotion section">
+                <div class="container section-title pb-0 pt-1" data-aos="fade-up">
+                    <h2>{{ category.name }}</h2>
+                </div>
+
+                <div class="container my-4">
+                    <div class="row g-4 mt-4">
+                        {% for subcategory in subcategories|dictsort:"id" %}
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                            <a href="{{ subcategory.get_absolute_url }}">
+                                <div class="subcategory-wrapper">
+                                    <img src="{{ subcategory.image.url }}" class="subcategory-image" alt="{{ subcategory.name }}">
+                                    <div class="info-bar">
+                                        <h5 class="mb-1">{{ subcategory.name }}</h5>
+                                        <p class="mb-0">{{ subcategory.product_count|to_farsi_digits }} محصول</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        {% empty %}
+                            <p class="text-center">No subcategories available.</p>
+                        {% endfor %}
+                    </div>
+                </div>
+                               
+            </section>
+
+        </main>
+{% endblock %}
+

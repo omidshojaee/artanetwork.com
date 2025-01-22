@@ -1,0 +1,329 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load number_formats %}
+{% load farsi_tags %}
+{% block extraheader %}<link rel="canonical" href="{{ request.build_absolute_uri }}" />{% endblock %}
+{% block title %}فروش و نصب تجهیزات شبکه، دوربین مداربسته و نرم‌افزارهای سرور | آرتا شبکه صنعت رایان{% endblock %}
+
+{% block content %}
+
+        <main class="main">
+
+            <!-- Hero Section -->
+            <section id="hero" class="hero section dark-background">
+
+                <div id="hero-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+
+                    {% for slider in sliders %}
+                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                        <img src="{{ slider.image.url }}" alt="" />
+                        <div class="container">
+                            <h2>{{ slider.title }}</h2>
+                            <p>{{ slider.subtitle }}</p>
+                            <a href="#" class="btn-contact-us">تماس بگیرید</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                    <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="next">
+                        <span class="carousel-control-prev-icon bi bi-chevron-right" aria-hidden="true"></span>
+                    </a>
+                    <a class="carousel-control-next" href="#hero-carousel" role="button" data-bs-slide="prev">
+                        <span class="carousel-control-next-icon bi bi-chevron-left" aria-hidden="true"></span>
+                    </a>
+
+                    <ol class="carousel-indicators"></ol>
+
+                </div>
+
+            </section><!-- /Hero Section -->
+
+            <!-- Call To Action Section -->
+            <section id="call-to-action" class="call-to-action section light-background">
+
+                <div class="container">
+
+                    <div class="row align-items-center justify-content-center" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="col-lg-10 text-center">
+                            <h3>اشتراک خبرنامه</h3>
+                            <p>جهت اطلاع از اخبار و تخفیفات ویژه، در خبرنامه عضو شوید. نشانی ایمیل شما محفوظ خواهد ماند.</p>
+                        </div>
+                        <div class="col-lg-4">
+                            <form id="newsletter" action="#" method="post" class="email-form" style="direction: ltr;">
+                                <div class="newsletter-form">
+                                    <input id="email" type="email" name="email" required placeholder="آدرس ایمیل شما" />
+                                    <input type="submit" value="اشتراک">
+                                </div>
+                                <div id="loading" class="loading" style="direction: rtl;">منتظر باشید</div>
+                                <div id="error-message" class="error-message" style="direction: rtl;"></div>
+                                <div id="sent-message" class="sent-message" style="direction: rtl;"></div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section><!-- /Call To Action Section -->
+
+            <!-- Promotion Section -->
+            {% if promotional_brands %}
+            {% for brand in promotional_brands %}
+            <section id="promotion" class="promotion section">
+                <div class="container section-title" data-aos="fade-up">
+                    <h2>فروش ویژه محصولات {{ brand.name }}</h2>
+                    <p>جهت تایید موجودی و قیمت لطفا با بخش فروش تماس بگیرید</p>
+                </div>
+            
+                <div class="container">
+                    <div class="swiper init-swiper">
+                        <script type="application/json" class="swiper-config">
+                            {
+                                "loop": true,
+                                "speed": 600,
+                                "autoplay": {
+                                    "delay": 5000
+                                },
+                                "slidesPerView": "auto",
+                                "pagination": {
+                                    "el": ".swiper-pagination",
+                                    "type": "bullets",
+                                    "clickable": true
+                                },
+                                "breakpoints": {
+                                    "320": {
+                                        "slidesPerView": 1,
+                                        "spaceBetween": 40
+                                    },
+                                    "1200": {
+                                        "slidesPerView": 5,
+                                        "spaceBetween": 10
+                                    }
+                                }
+                            }
+                        </script>
+            
+                        <div class="swiper-wrapper">
+                            {% for product in brand.products.all %}
+                            <div class="swiper-slide">
+                                <div class="product-item">
+                                    <div class="product-img">
+                                        <img src="{{ product.image.url }}" class="img-fluid" alt="">
+                                        <div class="social">
+                                            <a href="https://t.me/share/url?url={{ request.scheme }}://{{ request.get_host }}{{ product.get_absolute_url }}" target="_blank"><i class="bi bi-telegram"></i></a>
+                                            <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ request.scheme }}://{{ request.get_host }}{{ product.get_absolute_url }}" target="_blank"><i class="bi bi-linkedin"></i></a>
+                                            <a href="https://twitter.com/intent/tweet?url={{ request.scheme }}://{{ request.get_host }}{{ product.get_absolute_url }}" target="_blank"><i class="bi bi-twitter-x"></i></a>
+                                            <a href="https://facebook.com/sharer/sharer.php?url={{ request.scheme }}://{{ request.get_host }}{{ product.get_absolute_url }}" target="_blank"><i class="bi bi-facebook"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="product-info">
+                                        <h4>
+                                            <a href="{{ product.get_absolute_url}}">
+                                                {{ product.name }}
+                                            </a>
+                                        </h4>
+                                        <span>{{ product.price|formatted_price|to_farsi_digits }} تومان</span>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </section><!-- /Promotion Section -->
+            {% endfor %}
+            {% endif %}
+
+            <!-- Services Section -->
+            <section id="services" class="services section">
+
+                <!-- Section Title -->
+                <div class="container section-title" data-aos="fade-up">
+                    <h2>خدمات ما</h2>
+                </div><!-- End Section Title -->
+
+
+                <div class="container">
+
+                    <div class="row gy-4">
+
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                            <div class="service-item position-relative">
+                                <div class="icon">
+                                    <i class="bi bi-hdd-network"></i>
+                                </div>
+                                <a href="#" class="stretched-link">
+                                    <h3>خدمات اکتیو</h3>
+                                </a>
+                                <p>مشاوره، طراحی، اجرا و پشتیبانی سرور، سوئیچ، روتر، فایروال، ذخیره‌سازی، شبکه‌های بی‌سیم، مجازی‌سازی، پایگاه داده، امنیت شبکه، مدیریت پهنای باند، مانیتورینگ، کنترل دسترسی، مدیریت کاربران، تلفن تحت شبکه (VoIP)، خدمات ابری، بهینه‌سازی شبکه، نصب و راه‌اندازی VPN، پیکربندی VLAN، به‌روزرسانی سخت‌افزار و نرم‌افزار، راهکارهای پشتیبان‌گیری و بازیابی، و ارائه راهکارهای پایدارسازی شبکه.</p>
+                            </div>
+                        </div><!-- End Service Item -->
+
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                            <div class="service-item position-relative">
+                                <div class="icon">
+                                    <i class="bi bi-ethernet"></i>
+                                </div>
+                                <a href="#" class="stretched-link">
+                                    <h3>خدمات پسیو</h3>
+                                </a>
+                                <p>مشاوره، طراحی، اجرا و پشتیبانی کابل‌کشی ساختار‌یافته، ترانکینگ، داکت‌کشی، آرایش رک، نصب پچ پنل، نصب کیستون، فیبر نوری، تست و عیب‌یابی کابل، ارت و هم‌بندی، سیستم‌های سرمایش و تهویه رک، برچسب‌گذاری تجهیزات، مستندسازی شبکه، نصب و راه‌اندازی رک‌های دیواری و ایستاده، ایجاد مسیرهای عبور کابل، نصب سیستم‌های مدیریت کابل، و بهینه‌سازی زیرساخت فیزیکی شبکه.</p>
+                            </div>
+                        </div><!-- End Service Item -->
+
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                            <div class="service-item position-relative">
+                                <div class="icon">
+                                    <i class="bi bi-wifi"></i>
+                                </div>
+                                <a href="#" class="stretched-link">
+                                    <h3>شبکه‌های وایرلس</h3>
+                                </a>
+                                <p>مشاوره، طراحی، اجرا و پشتیبانی شبکه‌های بی‌سیم، نصب و پیکربندی اکسس‌پوینت، طراحی پوشش‌دهی سیگنال، تنظیمات امنیتی، بهینه‌سازی سیگنال، لینک‌های وایرلس نقطه به نقطه (PTP) و نقطه به چند نقطه (PTMP)، پیاده‌سازی شبکه‌های مش (Mesh)، مانیتورینگ و عیب‌یابی، ارتقاء تجهیزات بی‌سیم، مدیریت کاربران و دسترسی‌ها، تست کیفیت سیگنال، و راهکارهای افزایش ظرفیت و پایداری شبکه.</p>
+                            </div>
+                        </div><!-- End Service Item -->
+
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                            <div class="service-item position-relative">
+                                <div class="icon">
+                                    <i class="bi bi-pc"></i>
+                                </div>
+                                <a href="#" class="stretched-link">
+                                    <h3>مدیریت سرور</h3>
+                                </a>
+                                <p>مشاوره، طراحی، اجرا و پشتیبانی نرم‌افزارهای سرور، نصب و پیکربندی مایکروسافت شیرپوینت (SharePoint)، مایکروسافت اکسچنج (Exchange)، اکتیودایرکتوری (Active Directory)، نصب و مدیریت سرورهای فایل (File Server)، سرورهای پایگاه داده (SQL Server)، سرورهای ایمیل، پیاده‌سازی سیستم‌های پشتیبان‌گیری و بازیابی، پیکربندی سرورهای وب، بهینه‌سازی عملکرد نرم‌افزارهای سرور، تنظیمات امنیتی و مدیریت دسترسی، مانیتورینگ و عیب‌یابی، به‌روزرسانی و نگهداری، و ارائه راهکارهای یکپارچه‌سازی نرم‌افزارهای سازمانی.</p>
+                            </div>
+                        </div><!-- End Service Item -->
+
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                            <div class="service-item position-relative">
+                                <div class="icon">
+                                    <i class="bi bi-google-play"></i>
+                                </div>
+                                <a href="#" class="stretched-link">
+                                    <h3>طراحی سایت و اپلیکیشن</h3>
+                                </a>
+                                <p>مشاوره، طراحی، اجرا و پشتیبانی وب‌سایت و اپلیکیشن، طراحی رابط کاربری (UI) و تجربه کاربری (UX)، توسعه وب‌سایت‌های استاتیک و داینامیک، طراحی وب‌سایت‌های واکنش‌گرا (Responsive)، پیاده‌سازی فروشگاه‌های آنلاین، توسعه اپلیکیشن‌های موبایل (Android و iOS)، توسعه وب‌اپلیکیشن‌های پیشرفته (PWA)، توسعه بک‌اند (Back-end) و فرانت‌اند (Front-end) ، بهینه‌سازی موتورهای جستجو (SEO)، یکپارچه‌سازی API و سرویس‌های شخص ثالث، مدیریت پایگاه داده، تست و دیباگینگ، بهینه‌سازی عملکرد، به‌روزرسانی و نگهداری اپلیکیشن، امنیت وب‌سایت و اپلیکیشن، و ارائه راهکارهای مقیاس‌پذیر برای وب‌سایت و اپلیکیشن‌های بزرگ.</p>
+                            </div>
+                        </div><!-- End Service Item -->
+
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                            <div class="service-item position-relative">
+                                <div class="icon">
+                                    <i class="bi bi-broadcast"></i>
+                                </div>
+                                <a href="#" class="stretched-link">
+                                    <h3>دکل مخابراتی</h3>
+                                </a>
+                                <p>مشاوره، طراحی، اجرا و پشتیبانی دکل‌های مخابراتی، نصب و راه‌اندازی دکل‌های مهاری، خودایستا و منوپل، نصب تجهیزات مخابراتی و آنتن، نصب و تنظیم لینک‌های رادیویی، تست و عیب‌یابی سیگنال، ارتینگ و هم‌بندی دکل، پیاده‌سازی سیستم‌های روشنایی و هشداردهنده دکل، نگهداری و بازرسی دوره‌ای دکل‌ها، مقاوم‌سازی و پایدارسازی دکل، رنگ‌آمیزی و پوشش‌دهی ضدزنگ، نصب سیستم‌های حفاظتی و ایمنی دکل، و ارائه راهکارهای بهینه‌سازی و افزایش پایداری دکل‌های مخابراتی.</p>
+                            </div>
+                        </div><!-- End Service Item -->
+
+                    </div>
+
+                </div>
+
+            </section><!-- /Services Section -->
+
+            <!-- Contact Section -->
+            <section id="contact" class="contact section">
+
+                <!-- Section Title -->
+                <div class="container section-title" data-aos="fade-up">
+                    <h2>تماس با ما</h2>
+                </div><!-- End Section Title -->
+
+                <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+                    <div class="row gy-4">
+
+                        <div class="col-lg-6">
+
+                            <div class="row gy-4">
+                                <div class="col-md-6">
+                                    <div class="info-item" data-aos="fade" data-aos-delay="200">
+                                        <i class="bi bi-geo-alt"></i>
+                                        <h3>تشریف بیاورید</h3>
+                                        <p>میدان هفت تیر، قائم مقام فراهانی</p>
+                                        <p>کوچه زیبا، کوچه مروارید، پلاک ۴، واحد ۲</p>
+                                    </div>
+                                </div><!-- End Info Item -->
+
+                                <div class="col-md-6">
+                                    <div class="info-item" data-aos="fade" data-aos-delay="300">
+                                        <i class="bi bi-telephone"></i>
+                                        <h3>تماس بگیرید</h3>
+                                        <p>۰۲۱-۹۲۰۰۱۳۹۲</p>
+                                        <br />
+                                    </div>
+                                </div><!-- End Info Item -->
+
+                                <div class="col-md-6">
+                                    <div class="info-item" data-aos="fade" data-aos-delay="400">
+                                        <i class="bi bi-envelope"></i>
+                                        <h3>ایمیل بزنید</h3>
+                                        <p>info@artanetwork.com</p>
+                                        <br />
+                                    </div>
+                                </div><!-- End Info Item -->
+
+                                <div class="col-md-6">
+                                    <div class="info-item" data-aos="fade" data-aos-delay="500">
+                                        <i class="bi bi-clock"></i>
+                                        <h3>ساعت کار</h3>
+                                        <p>شنبه تا چهارشنبه ۰۹:۰۰ الی ۱۷:۰۰</p>
+                                        <p>پنجشنبه ۰۹:۰۰ الی ۱۳:۰۰</p>
+                                    </div>
+                                </div><!-- End Info Item -->
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-lg-6">
+                            <form id="contact-form" action="" method="post" class="email-form" data-aos="fade-up" data-aos-delay="200">
+                                {% csrf_token %}
+                                <div class="row gy-4">
+
+                                    <div class="col-md-6">
+                                        <input id="name" type="text" name="name" class="form-control" placeholder="نام شما" required>
+                                    </div>
+
+                                    <div class="col-md-6 ">
+                                        <input id="tel" type="tel" class="form-control" name="tel" placeholder="تلفن همراه" required>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <input id="subject" type="text" class="form-control" name="subject" placeholder="موضوع" required>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <textarea id="message" class="form-control" name="message" rows="6" placeholder="متن پیام" required></textarea>
+                                    </div>
+
+                                    <div class="col-12 text-center">
+                                        <div id="contact-loading" class="loading">منتظر باشید</div>
+                                        <div id="contact-error-message" class="error-message"></div>
+                                        <div id="contact-sent-message" class="sent-message"></div>
+
+                                        <button type="submit">ارسال</button>
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div><!-- End Contact Form -->
+
+                    </div>
+
+                </div>
+
+            </section><!-- /Contact Section -->
+
+        </main>
+{% endblock %}
+
+{% block extrascript %}
+        <script src="{% static 'homepage/js/load-csrf-token.js' %}"></script>
+        <script src="{% static 'homepage/js/newsletter-signup-form.js' %}"></script>
+        <script src="{% static 'homepage/js/submit-contact-form.js' %}"></script>
+{% endblock %}
